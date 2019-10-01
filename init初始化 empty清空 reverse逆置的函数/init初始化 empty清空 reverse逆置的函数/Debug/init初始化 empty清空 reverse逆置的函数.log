@@ -1,0 +1,19 @@
+﻿生成启动时间为 2019/9/29 18:21:00。
+     1>项目“E:\github作业\-\init初始化 empty清空 reverse逆置的函数\init初始化 empty清空 reverse逆置的函数\init初始化 empty清空 reverse逆置的函数.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt "源.c"
+         源.c
+     1>e:\github作业\-\init初始化 empty清空 reverse逆置的函数\init初始化 empty清空 reverse逆置的函数\源.c(30): warning C4047: “=”:“int”与“int *”的间接级别不同
+     1>e:\github作业\-\init初始化 empty清空 reverse逆置的函数\init初始化 empty清空 reverse逆置的函数\源.c(32): warning C4047: “=”:“int *”与“int”的间接级别不同
+     1>e:\github作业\-\init初始化 empty清空 reverse逆置的函数\init初始化 empty清空 reverse逆置的函数\源.c(43): warning C4047: “函数”:“int **”与“int [5]”的间接级别不同
+     1>e:\github作业\-\init初始化 empty清空 reverse逆置的函数\init初始化 empty清空 reverse逆置的函数\源.c(43): warning C4024: “init”: 形参和实参 1 的类型不同
+     1>e:\github作业\-\init初始化 empty清空 reverse逆置的函数\init初始化 empty清空 reverse逆置的函数\源.c(61): warning C4047: “函数”:“int **”与“int [5]”的间接级别不同
+     1>e:\github作业\-\init初始化 empty清空 reverse逆置的函数\init初始化 empty清空 reverse逆置的函数\源.c(61): warning C4024: “reverse”: 形参和实参 1 的类型不同
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\github作业\-\init初始化 empty清空 reverse逆置的函数\Debug\init初始化 empty清空 reverse逆置的函数.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\github作业\-\init初始化 empty清空 reverse逆置的函数\Debug\init初始化 empty清空 reverse逆置的函数.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\github作业\-\init初始化 empty清空 reverse逆置的函数\Debug\init初始化 empty清空 reverse逆置的函数.lib" /MACHINE:X86 "Debug\源.obj"
+         init初始化 empty清空 reverse逆置的函数.vcxproj -> E:\github作业\-\init初始化 empty清空 reverse逆置的函数\Debug\init初始化 empty清空 reverse逆置的函数.exe
+     1>已完成生成项目“E:\github作业\-\init初始化 empty清空 reverse逆置的函数\init初始化 empty清空 reverse逆置的函数\init初始化 empty清空 reverse逆置的函数.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.38
