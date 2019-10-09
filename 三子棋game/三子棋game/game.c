@@ -27,14 +27,18 @@ void DisplayBoard(char board[ROW][COL],int row,int col)
 			}
 		}
 		printf("\n");
-		//´ýÐÞ¸´
-			printf("---");
+		if (i < row - 1)
+		{
 			for (j = 0; j < col; j++)
 			{
-				printf("|");
+				printf("---");
+				if (j < col - 1)
+				{
+					printf("|");
+				}
 			}
-			printf("\n");
 		}
+		printf("\n");
 	}
 }
 //void PlayerMove(char board[ROW][COL], int row, int col)
