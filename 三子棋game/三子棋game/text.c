@@ -9,15 +9,43 @@ void menu()
 }
 void game()
 {
-	int ret = 0;
+	char ret = 0;
 	char board[ROW][COL] = { 0 };
 	InitBoard(board, ROW, COL);
 	DisplayBoard(board, ROW, COL);
-	//PlayerMove(board, ROW, COL);
-	//ChackWin(board, ROW, COL);
-	//ComputerMove(board, ROW, COL);
-	//ChackWin(board, ROW, COL);
+	while (1)
+	{
 
+		PlayerMove(board, ROW, COL);
+		CheckWin(board, ROW, COL);
+		ret = CheckWin(board, ROW, COL);
+        /*DisplayBoard(board, ROW, COL);*/
+		if (ret != ' ')
+		{
+			break;
+		}
+		srand((unsigned int)time(NULL));
+        ComputerMove(board, ROW, COL);
+		CheckWin(board, ROW, COL);
+		int ret = CheckWin(board, ROW, COL);
+		DisplayBoard(board, ROW, COL);
+		if (ret != ' ')
+		{
+			break;
+		}
+	}
+	if (ret == '*')
+	{
+		printf("玩家赢\n");
+	}
+	if (ret == '#')
+	{
+		printf("电脑赢\n");
+	}
+	if (ret == 'q')
+	{
+		printf("是平局\n");
+	}
 }
 int main()
 {
