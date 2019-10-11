@@ -17,8 +17,8 @@ void game()
 	{
 
 		PlayerMove(board, ROW, COL);
-		CheckWin(board, ROW, COL);
-		ret = CheckWin(board, ROW, COL);
+		CheckWin2(board, ROW, COL);
+		ret = CheckWin2(board, ROW, COL);
         /*DisplayBoard(board, ROW, COL);*/
 		if (ret != ' ')
 		{
@@ -26,8 +26,8 @@ void game()
 		}
 		srand((unsigned int)time(NULL));
         ComputerMove(board, ROW, COL);
-		CheckWin(board, ROW, COL);
-		int ret = CheckWin(board, ROW, COL);
+		CheckWin2(board, ROW, COL);
+		int ret = CheckWin2(board, ROW, COL);
 		DisplayBoard(board, ROW, COL);
 		if (ret != ' ')
 		{
@@ -37,14 +37,17 @@ void game()
 	if (ret == '*')
 	{
 		printf("玩家赢\n");
+		DisplayBoard(board, ROW, COL);
 	}
 	if (ret == '#')
 	{
 		printf("电脑赢\n");
+		DisplayBoard(board, ROW, COL);
 	}
 	if (ret == 'q')
 	{
 		printf("是平局\n");
+		DisplayBoard(board, ROW, COL);
 	}
 }
 int main()

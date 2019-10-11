@@ -131,3 +131,80 @@ char CheckWin(char board[ROW][COL], int row, int col)
 	}
 	return ' ';
 }
+char CheckWin2(char board[ROW][COL], int row, int col)//五子棋
+{
+	int x = 0;
+	int y = 0;
+	int i = 0;
+	char temp = 0;
+	for (x = 0; x < row; x++)
+	{
+		for (y = 0; y < col; y++)
+		{
+			//纵向
+			for (i = 0; i < CHESS-1; i++) 
+			{
+				if (board[x][y] == board[x][y + i] && board[x][y] != ' ')
+				{
+					continue;
+				}
+				else
+					break;
+			}
+			if (board[x][y] == board[x][y + i]&&board[x][y]!=' ')
+			{
+				return board[x][y];
+			}
+
+			//纵向
+			for (i = 0; i < CHESS - 1; i++) 
+			{
+				if (board[x][y] == board[x + i][y] && board[x][y] != ' ')
+				{
+					continue;
+				}
+				else
+					break;
+			}
+			if (board[x][y] == board[x + i][y] && board[x][y] != ' ')
+			{
+				return board[x][y];
+			}
+
+			//捺 斜向
+			for (i = 0; i < CHESS - 1; i++)
+			{
+				if (board[x][y] == board[x + i][y + i] && board[x][y] != ' ')
+				{
+					continue;
+				}
+				else
+					break;
+			}
+			if (board[x][y] == board[x + i][y + i] && board[x][y] != ' ')
+			{
+				return board[x][y];
+			}
+
+			//撇 斜向
+			for (i = 0; i < CHESS - 1; i++)
+			{
+				if (board[x][y] == board[x - i][y + i] && board[x][y] != ' ')
+				{
+					continue;
+				}
+				else
+					break;
+			}
+			if (board[x][y] == board[x - i][y + i] && board[x][y] != ' ')
+			{
+				return board[x][y];
+			}
+		}
+	}
+	if (IsFull(board, ROW, COL))
+	{
+		return 'q';
+	}
+	return ' ';
+}
