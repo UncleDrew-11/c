@@ -12,15 +12,17 @@ void game()
 	char MineBoard[ROWS][COLS] = { 0 };
 	char ShowBoard[ROWS][COLS] = { 0 };
 	InitBoard(MineBoard, ROWS,COLS, '0');
-	Display(MineBoard, ROWS, COLS);
-	InitBoard(ShowBoard, ROWS, COLS, '*');
-	Display(ShowBoard, ROW, COL);
+	PutMine(MineBoard, ROW, COL);
+	Display(MineBoard, ROW, COL);
+	//InitBoard(ShowBoard, ROWS, COLS, '*');
+	//Display(ShowBoard, ROWS,COLS);
 
 	//PlayerMove(MineBoard[ROWS][COLS], ROW, COL);
 }
 int main()
 {
 	int input = 0;
+	srand((unsigned int)time(NULL));
 	do
 	{
 		menu();

@@ -1,8 +1,13 @@
 #include<stdio.h>
-#define ROWS 11
-#define COLS 11
-#define ROW ROWS -2
-#define COL COLS -2
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+#define ROW 9
+#define COL 9
+#define ROWS ROW +2
+#define COLS COL +2
+#define MINE 80
 
 void InitBoard(char board[ROWS][COLS], int row, int col, char set);
 void Display(char board[ROWS][COLS], int row, int col);
+void PutMine(char board[ROWS][COLS], int row, int col);
