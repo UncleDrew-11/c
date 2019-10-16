@@ -11,3 +11,4 @@
 void InitBoard(char board[ROWS][COLS], int row, int col, char set);
 void Display(char board[ROWS][COLS], int row, int col);
 void PutMine(char board[ROWS][COLS], int row, int col);
+void Saolei(char MineBoard[ROWS][COLS], int ShowBoard[ROWS][COLS], int rol, int col);

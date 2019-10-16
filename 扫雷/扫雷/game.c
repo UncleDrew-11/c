@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "game.h"
 void InitBoard(char MineBoard[ROWS][COLS], int row, int col, char set)//初始化棋盘
 {
@@ -69,9 +70,48 @@ void PutMine(char board[ROWS][COLS], int row, int col)//布置雷
 		}
 	}
 }
-void Saolei(char board[ROWS][COLS], int row, int col)
+int NearMine(char mine[COLS][ROWS], int x, int y)
+{
+	return mine[x-1][y] +
+		mine[x - 1][y - 1] +
+		mine[x][y - 1] +
+		mine[x + 1][y - 1] +
+		mine[x + 1][y] +
+		mine[x + 1][y + 1] +
+		mine[x][y + 1] +
+		mine[x - 1][y + 1] - 8 * '0';
+}
+//void NoMine(char mine[ROWS][COLS], char show[ROWS][COLS],int x,int y)
+//{
+//	NearMine(mine, x, y);
+//}
+void Saolei(char mine[ROWS][COLS],char show[ROWS][COLS],int row, int col)
 {
 	int x = 0;
 	int y = 0;
-	   
+	int flag = ROW*COL - MINE;
+	printf("请输入扫雷坐标:>");
+	scanf("%d%d", &x, &y);
+	while (flag)
+	{
+		if (x >= 1 && x <= row && y >= 1 && y <= col)
+		{
+			if (mine[x][y] == '0' && show[x][y] == '*')
+			{
+				int ret = NearMine(mine, x, y);
+				show[x][y] = ret + '0';
+				Display(show, ROW, COL);
+			}
+			if (mine[x][y] == '1' && show[x][y] == '*')
+			{
+				show[x][y] = 'S';
+				Display(show, ROW, COL);
+				printf("你被炸死了\n");
+			}
+		}
+		else
+		{
+			printf("坐标非法请重新输入\n");
+		}
+	}
 }

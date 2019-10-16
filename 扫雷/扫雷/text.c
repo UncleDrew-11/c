@@ -14,15 +14,14 @@ void game()
 	InitBoard(MineBoard, ROWS,COLS, '0');
 	PutMine(MineBoard, ROW, COL);
 	Display(MineBoard, ROW, COL);
-	//InitBoard(ShowBoard, ROWS, COLS, '*');
-	//Display(ShowBoard, ROWS,COLS);
-
-	//PlayerMove(MineBoard[ROWS][COLS], ROW, COL);
+	InitBoard(ShowBoard, ROWS, COLS, '*');
+	Display(ShowBoard, ROW,COL);
+    Saolei(MineBoard, ShowBoard, ROW, COL);
 }
 int main()
 {
-	int input = 0;
 	srand((unsigned int)time(NULL));
+	int input = 0;
 	do
 	{
 		menu();
