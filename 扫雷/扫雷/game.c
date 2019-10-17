@@ -81,37 +81,94 @@ int NearMine(char mine[COLS][ROWS], int x, int y)
 		mine[x][y + 1] +
 		mine[x - 1][y + 1] - 8 * '0';
 }
-//void NoMine(char mine[ROWS][COLS], char show[ROWS][COLS],int x,int y)
-//{
-//	NearMine(mine, x, y);
-//}
+void NoMine(char mine[ROWS][COLS], char show[ROWS][COLS],int x,int y)
+{
+	int ret = NearMine(mine, x, y);
+	if (ret == 0)
+	{
+		show[x][y] = ' ';
+		if ((x - 1)>0 && (y - 1)>0 && (show[x - 1][y - 1] == '*'))
+			NoMine(mine, show, x - 1, y - 1);
+
+		if ((x - 1)>0 && (y)>0 && (show[x - 1][y] == '*'))
+			NoMine(mine, show, x - 1, y);
+
+		if ((x - 1)>0 && (y + 1)>0 && (show[x - 1][y + 1] == '*'))
+			NoMine(mine, show, x - 1, y + 1);
+
+		if ((x)>0 && (y - 1)>0 && (show[x][y - 1] == '*'))
+			NoMine(mine, show, x, y - 1);
+
+		if ((x)>0 && (y + 1)>0 && (show[x][y + 1] == '*'))
+			NoMine(mine, show, x, y + 1);
+
+		if ((x + 1)>0 && (y - 1)>0 && (show[x + 1][y - 1] == '*'))
+			NoMine(mine, show, x + 1, y - 1);
+
+		if ((x + 1)>0 && (y)>0 && (show[x + 1][y] == '*'))
+			NoMine(mine, show, x + 1, y);
+
+		if ((x + 1)>0 && (y + 1)>0 && (show[x + 1][y + 1] == '*'))
+			NoMine(mine, show, x - 1, y - 1);
+	}
+	else
+	{
+		show[x][y] = ret + '0';
+	}
+}
+int CountBlank(char show[ROWS][COLS], int row, int col)
+{
+	int i = 0;
+	int j = 0;
+	int count = 0;
+	for (i = 1; i <= row; i++)
+	{
+		for (j = 1; j <= col; j++)
+		{
+			if (show[i][j] == '*')
+				count++;
+		}
+	}
+	return count;
+}
 void Saolei(char mine[ROWS][COLS],char show[ROWS][COLS],int row, int col)
 {
 	int x = 0;
 	int y = 0;
-	int flag = ROW*COL - MINE;
-	printf("请输入扫雷坐标:>");
-	scanf("%d%d", &x, &y);
-	while (flag)
+	int flag = 1;
+	int ret = 0;
+	do
 	{
-		if (x >= 1 && x <= row && y >= 1 && y <= col)
+		printf("请输入扫雷坐标:>");
+		scanf("%d%d", &x, &y);
 		{
-			if (mine[x][y] == '0' && show[x][y] == '*')
+			if (x >= 1 && x <= row && y >= 1 && y <= col)
 			{
-				int ret = NearMine(mine, x, y);
-				show[x][y] = ret + '0';
-				Display(show, ROW, COL);
+				if (mine[x][y] == '0' && show[x][y] == '*')
+				{
+					NoMine(mine, show, x, y);
+					/*Display(mine, ROW, COL);*/
+					Display(show, ROW, COL);
+					ret = CountBlank(show, ROW, COL);
+					if (ret == MINE)
+					{
+						printf("你赢了\n");
+						break;
+					}
+				}
+				if (mine[x][y] == '1' && show[x][y] == '*')
+				{
+					show[x][y] = 'S';
+					Display(show, ROW, COL);
+					printf("你被炸死了,雷图如下\n");
+					Display(mine, ROW, COL);
+					flag = 0;
+				}
 			}
-			if (mine[x][y] == '1' && show[x][y] == '*')
+			else
 			{
-				show[x][y] = 'S';
-				Display(show, ROW, COL);
-				printf("你被炸死了\n");
+				printf("坐标非法请重新输入\n");
 			}
 		}
-		else
-		{
-			printf("坐标非法请重新输入\n");
-		}
-	}
+	} while (flag);
 }
