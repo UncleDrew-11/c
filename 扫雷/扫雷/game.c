@@ -137,10 +137,12 @@ void Saolei(char mine[ROWS][COLS],char show[ROWS][COLS],int row, int col)
 	int y = 0;
 	int flag = 1;
 	int ret = 0;
+	int count = 0;
 	do
 	{
 		printf("请输入扫雷坐标:>");
 		scanf("%d%d", &x, &y);
+		count++;
 		{
 			if (x >= 1 && x <= row && y >= 1 && y <= col)
 			{
@@ -156,7 +158,11 @@ void Saolei(char mine[ROWS][COLS],char show[ROWS][COLS],int row, int col)
 						break;
 					}
 				}
-				if (mine[x][y] == '1' && show[x][y] == '*')
+				if (mine[x][y] == '1' && show[x][y] == '*'&& count == 1)
+				{
+					printf("你碰到雷了，第一次下子不被炸死\n");
+				}
+				if (mine[x][y] == '1' && show[x][y] == '*'&& count != 1)
 				{
 					show[x][y] = 'S';
 					Display(show, ROW, COL);
